@@ -10,7 +10,7 @@ export default function Button(props) {
   return (
     <button
       onClick={() => props.setSelectedButton(props.buttonTab)}
-      className={`${activeButtonClass} text-white font-bold inline-grid rounded-full text-slate-400 aspect-square px-2 place-items-center 
+      className={`${activeButtonClass} text-white text-xl font-bold inline-grid rounded-full text-slate-400 aspect-square px-4 place-items-center 
       border-white border-[1.5px] `}
     >
       {props.number + 1}

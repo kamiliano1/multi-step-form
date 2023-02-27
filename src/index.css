@@ -4,6 +4,17 @@
 @tailwind utilities;
 
 html {
-  @apply bg-alabaster;
+  @apply bg-marineBlue;
   font-family: 'Ubuntu', sans-serif;
+}
+label, input {
+  @apply block
+}
+
+label {
+  @apply text-marineBlue
+}
+
+input {
+  @apply pl-3 py-1 border-coolGray border-[1px] rounded-md text-sm w-full mb-3
 }
