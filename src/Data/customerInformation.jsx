@@ -5,10 +5,8 @@ export const customerInformation = {
     phone: "",
   },
   plan: {
-    isArcade: false,
-    isAdvanced: false,
-    isPro: false,
-    typeOfSubscription: "Yearly",
+    typeOfPlan: "Arcade",
+    typeOfSubscription: "Monthly",
   },
   addOns: {
     onlineService: false,

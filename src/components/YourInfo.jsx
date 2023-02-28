@@ -1,7 +1,9 @@
-import { useState } from "react";
-
-export default function YourInfo(props) {
-  const [personalnfo, setPersonalInfo] = useState({
+import { useState, useContext } from "react";
+import { PageFormContext } from "../PageContext";
+export default function YourInfo() {
+  const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
+    useContext(PageFormContext);
+  const [personalInfo, setPersonalInfo] = useState({
     name: "",
     email: "",
     phone: "",
@@ -9,14 +11,14 @@ export default function YourInfo(props) {
   const handleChange = (e) => {
     const { value, name } = e.target;
     setPersonalInfo((prev) => ({ ...prev, [name]: value }));
-    console.log(personalnfo);
   };
-  const handleSubmit = (e) => {
-    e.prevent.default();
+  const handleSubmit = () => {
+    setCustomerInfo((prev) => ({ ...prev, personalInfo: personalInfo }));
+    setSelectedButton(buttonTabs[1]);
   };
 
   return (
-    <section className="p-5 h-[500px] flex flex-col">
+    <section className="p-5 h-[550px] flex flex-col">
       <h1 className="text-2xl font-bold text-marineBlue">Personal info</h1>
       <p className="text-sm text-coolGray my-4">
         Please provide your name, email address, and phone number.
@@ -29,7 +31,7 @@ export default function YourInfo(props) {
             type="text"
             name="name"
             id="name"
-            value={personalnfo.name}
+            value={personalInfo.name}
             placeholder="e.g. Stephen King"
           />
         </label>
@@ -41,7 +43,7 @@ export default function YourInfo(props) {
             type="email"
             name="email"
             id="email"
-            value={personalnfo.email}
+            value={personalInfo.email}
             placeholder="e.g. stephenking@lorem.com"
           />
         </label>
@@ -51,7 +53,7 @@ export default function YourInfo(props) {
           type="number"
           name="phone"
           id="phone"
-          value={personalnfo.phone}
+          value={personalInfo.phone}
           placeholder="e.g. +1 234 567 890"
         />
       </form>
