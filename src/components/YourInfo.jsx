@@ -4,9 +4,13 @@ export default function YourInfo() {
   const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
     useContext(PageFormContext);
   const [personalInfo, setPersonalInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    name: customerInfo.personalInfo.name ? customerInfo.personalInfo.name : "",
+    email: customerInfo.personalInfo.email
+      ? customerInfo.personalInfo.email
+      : "",
+    phone: customerInfo.personalInfo.phone
+      ? customerInfo.personalInfo.phone
+      : "",
   });
   const handleChange = (e) => {
     const { value, name } = e.target;

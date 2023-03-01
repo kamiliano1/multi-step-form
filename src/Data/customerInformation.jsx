@@ -7,6 +7,7 @@ export const customerInformation = {
   plan: {
     typeOfPlan: "Arcade",
     typeOfSubscription: "Monthly",
+    price: "",
   },
   addOns: {
     onlineService: false,

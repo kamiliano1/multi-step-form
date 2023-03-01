@@ -6,13 +6,16 @@ import { BsToggleOn } from "react-icons/bs";
 export default function SelectPlan() {
   const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
     useContext(PageFormContext);
-  const [selectedPlan, setSelectedPlan] = useState("Arcade");
-  const [typeOfSubscription, setTypeOfSubscription] = useState("Monthly");
+  const [selectedPlan, setSelectedPlan] = useState(
+    customerInfo.plan.typeOfPlan
+  );
+  const [typeOfSubscription, setTypeOfSubscription] = useState(
+    customerInfo.plan.typeOfSubscription
+  );
   const switchSubscription = () => {
     typeOfSubscription === "Monthly"
       ? setTypeOfSubscription("Yearly")
       : setTypeOfSubscription("Monthly");
-    console.log(typeOfSubscription);
   };
   const planButtons = plansInformation.map(({ icon, name, price }) => (
     <PlanTypeItem
@@ -26,6 +29,16 @@ export default function SelectPlan() {
       selectedPlan={selectedPlan}
     />
   ));
+  const nextStep = () => {
+    setSelectedButton(buttonTabs[2]);
+    setCustomerInfo((prev) => ({
+      ...prev,
+      plan: {
+        typeOfPlan: selectedPlan,
+        typeOfSubscription: typeOfSubscription,
+      },
+    }));
+  };
   return (
     <section className="p-5 h-[550px] flex flex-col">
       <h1 className="text-2xl font-bold text-marineBlue">Select your plan</h1>
@@ -44,14 +57,14 @@ export default function SelectPlan() {
         <button
           onClick={() => setSelectedButton(buttonTabs[0])}
           type="submit"
-          className="  text-coolGray px-2 py-2 text-sm"
+          className="text-coolGray px-2 py-2 text-sm"
         >
           Go Back
         </button>
         <div className="flex items-center space-x-3">
           <p>Monthly</p>
           <div
-            className={typeOfSubscription === "Yearly" ? "iconTransform" : ""}
+            className={typeOfSubscription !== "Yearly" ? "iconTransform" : ""}
             onClick={switchSubscription}
           >
             <BsToggleOn />
@@ -59,7 +72,7 @@ export default function SelectPlan() {
           <p>Yearly</p>
         </div>
         <button
-          onClick={() => setSelectedButton(buttonTabs[2])}
+          onClick={nextStep}
           type="submit"
           className=" bg-marineBlue text-white px-2 py-2 text-sm"
         >
