@@ -1,8 +1,8 @@
 export default function PlanTypeItem(props) {
   const activeButtonClass =
     props.selectedPlan === props.name ? "border-PastelBlue" : "";
+
   return (
-    // border PastelBlue
     <div
       onClick={() => props.setSelectedPlan(props.name)}
       className={`${activeButtonClass} grid grid-cols-[35px_1fr] grid-rows-2 gap-x-4 cursor-pointer rounded-md border-2 p-3 mb-3`}
@@ -14,6 +14,7 @@ export default function PlanTypeItem(props) {
       />
       <h3 className="font-bold text-marineBlue">{props.name}</h3>
       <p className="text-coolGray text-sm">
+        $
         {props.typeOfSubs === "Monthly"
           ? props.priceMonthly
           : props.priceYearly}

@@ -6,14 +6,16 @@ export default function AddOns() {
   const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
     useContext(PageFormContext);
   const addOnsItems = addOnsInformation.map((item) => {
-    console.log("item", item);
+    const planPrice = addOnsInformation.find(
+      (services) => services.name === item.name
+    ).price[customerInfo.plan.typeOfSubscription.toLowerCase()];
     return (
       <AddOnItem
         key={item.id}
         id={item.id}
         name={item.name}
         details={item.details}
-        price={item.price}
+        price={planPrice}
         isChecked={true}
         // isChecked={setCustomerInfo.addOns}
       />

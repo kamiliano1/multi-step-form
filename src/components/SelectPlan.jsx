@@ -1,11 +1,17 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { PageFormContext } from "../PageContext";
 import PlanTypeItem from "./PlanTypeItem";
 import { plansInformation } from "../Data/plansInformation";
 import { BsToggleOn } from "react-icons/bs";
 export default function SelectPlan() {
-  const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
-    useContext(PageFormContext);
+  const {
+    setCustomerInfo,
+    customerInfo,
+    setSelectedButton,
+    buttonTabs,
+    setTotalPrice,
+  } = useContext(PageFormContext);
+
   const [selectedPlan, setSelectedPlan] = useState(
     customerInfo.plan.typeOfPlan
   );
@@ -17,6 +23,15 @@ export default function SelectPlan() {
       ? setTypeOfSubscription("Yearly")
       : setTypeOfSubscription("Monthly");
   };
+  // useEffect(() => {
+  //   setTotalPrice(
+  //     parseInt(
+  //       plansInformation
+  //         .find((item) => item.name === selectedPlan)
+  //         .price[typeOfSubscription.toLowerCase()].split("/")[0]
+  //     )
+  //   );
+  // }, [selectedPlan]);
   const planButtons = plansInformation.map(({ icon, name, price }) => (
     <PlanTypeItem
       key={name}
@@ -31,13 +46,19 @@ export default function SelectPlan() {
   ));
   const nextStep = () => {
     setSelectedButton(buttonTabs[2]);
-    setCustomerInfo((prev) => ({
-      ...prev,
-      plan: {
-        typeOfPlan: selectedPlan,
-        typeOfSubscription: typeOfSubscription,
-      },
-    }));
+    setCustomerInfo((prev) => {
+      const planPrice = plansInformation.find(
+        (item) => item.name === selectedPlan
+      ).price[typeOfSubscription.toLowerCase()];
+      return {
+        ...prev,
+        plan: {
+          typeOfPlan: selectedPlan,
+          typeOfSubscription: typeOfSubscription,
+          price: planPrice,
+        },
+      };
+    });
   };
   return (
     <section className="p-5 h-[550px] flex flex-col">
