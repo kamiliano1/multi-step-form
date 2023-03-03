@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { PageFormContext } from "../PageContext";
-import AddOnItem from "./AddOnItem";
+import AddOnItem from "../components/AddOnItem";
 import { addOnsInformation } from "../Data/addOnsInformation";
 export default function AddOns() {
   const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
@@ -16,8 +16,6 @@ export default function AddOns() {
         name={item.name}
         details={item.details}
         price={planPrice}
-        isChecked={true}
-        // isChecked={setCustomerInfo.addOns}
       />
     );
   });

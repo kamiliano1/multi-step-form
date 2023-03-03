@@ -10,8 +10,8 @@ export const customerInformation = {
     price: "",
   },
   addOns: {
-    onlineService: true,
-    largeStorage: true,
-    customizableProfile: true,
+    onlineService: false,
+    largeStorage: false,
+    customizableProfile: false,
   },
 };

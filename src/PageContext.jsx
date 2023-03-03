@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import { customerInformation } from "./Data/CustomerInformation";
 const PageFormContext = createContext();
-
+import { customerInformation } from "./Data/customerInformation";
 function PageFormContextProvider({ children }) {
   const buttonTabs = ["Your Info", "Select Plan", "Add-Ons", "Summary"];
   const [selectedButton, setSelectedButton] = useState(buttonTabs[0]);
