@@ -1,6 +1,5 @@
-import { useContext, useEffect, useRef, createRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { PageFormContext } from "../PageContext";
-import { customerInformation } from "../Data/customerInformation";
 export default function AddOnItem(props) {
   const checkBoxRef = useRef(null);
   const { setCustomerInfo, customerInfo } = useContext(PageFormContext);
@@ -23,21 +22,23 @@ export default function AddOnItem(props) {
   return (
     <div
       onClick={handleChange}
-      className={`grid grid-cols-[min-content_1fr_min-content] z-20 ${
-        customerInfo.addOns[props.id] && "border-blue-900"
-      } bg
-      grid-rows-2 cursor-pointer rounded-md border-2 p-3 mb-3 items-center`}
+      className={`hover:border-PurplishBlue grid grid-cols-[30px_1fr_min-content] ${
+        customerInfo.addOns[props.id] && "border-PurplishBlue"
+      } bg grid-rows-2 cursor-pointer rounded-md border-2 p-3 mb-3 items-center `}
     >
       <div className="row-span-2 mt-3 row-start-1 col-start-1 mr-2">
-        <input
-          type="checkbox"
-          className="w-[20px] h-[20px]"
-          checked={customerInfo.addOns[props.id]}
-          onChange={handleChange}
-          name={props.id}
-          id={props.id}
-          ref={checkBoxRef}
-        />
+        <label className="" htmlFor="">
+          <input
+            type="checkbox"
+            className="hidden"
+            checked={customerInfo.addOns[props.id]}
+            onChange={handleChange}
+            name={props.id}
+            id={props.id}
+            ref={checkBoxRef}
+          />
+          <span className="checkBox border-2 inline-block p-2 cursor-pointer "></span>
+        </label>
       </div>
       <h3 className="font-bold text-marineBlue text-xs">{props.name}</h3>
       <p className="text-coolGray text-xs col-start-2">{props.details}</p>

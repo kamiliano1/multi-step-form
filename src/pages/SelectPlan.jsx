@@ -1,16 +1,11 @@
-import { useState, useContext, useEffect } from "react";
-import { PageFormContext } from "../PageContext";
+import { useContext, useState } from "react";
+import { BsToggleOn } from "react-icons/bs";
 import PlanTypeItem from "../components/SelectPlanItem";
 import { plansInformation } from "../Data/plansInformation";
-import { BsToggleOn } from "react-icons/bs";
+import { PageFormContext } from "../PageContext";
 export default function SelectPlan() {
-  const {
-    setCustomerInfo,
-    customerInfo,
-    setSelectedButton,
-    buttonTabs,
-    setTotalPrice,
-  } = useContext(PageFormContext);
+  const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
+    useContext(PageFormContext);
 
   const [selectedPlan, setSelectedPlan] = useState(
     customerInfo.plan.typeOfPlan
@@ -23,15 +18,6 @@ export default function SelectPlan() {
       ? setTypeOfSubscription("Yearly")
       : setTypeOfSubscription("Monthly");
   };
-  // useEffect(() => {
-  //   setTotalPrice(
-  //     parseInt(
-  //       plansInformation
-  //         .find((item) => item.name === selectedPlan)
-  //         .price[typeOfSubscription.toLowerCase()].split("/")[0]
-  //     )
-  //   );
-  // }, [selectedPlan]);
   const planButtons = plansInformation.map(({ icon, name, price }) => (
     <PlanTypeItem
       key={name}
@@ -61,34 +47,52 @@ export default function SelectPlan() {
     });
   };
   return (
-    <section className="p-5 pb-10 h-full flex flex-col min-h-[550px]">
+    <section className="p-5 pb-10 h-full flex flex-col ">
       <h1 className="text-2xl font-bold text-marineBlue">Select your plan</h1>
       <p className="text-sm text-coolGray my-4">
         You have the option of monthly or yearly billing.
       </p>
-      <form action="" className=" pb-5 h-[400px] flex flex-col shadow-xl">
-        {planButtons}
-        <div>
-          <button>
-            <img src="/images/icon-checkmark.svg" alt="" />
-          </button>
+      <form action="" className="">
+        <div className="pb-5 h-[350px] md:h-[230px] flex flex-col md:flex-row shadow-xl md:shadow-none md:gap-4">
+          {planButtons}
         </div>
-        <div className="flex items-center justify-center space-x-3 mt-auto">
-          <p>Monthly</p>
+
+        <div className="flex items-center justify-center space-x-3 mt-auto md:row-start-2 font-bold pt-5">
+          <p
+            onClick={() => setTypeOfSubscription("Monthly")}
+            className={`cursor-pointer ${
+              typeOfSubscription === "Monthly"
+                ? "text-marineBlue"
+                : "text-coolGray"
+            }
+            `}
+          >
+            Monthly
+          </p>
           <div
             className={typeOfSubscription !== "Yearly" ? "iconTransform" : ""}
             onClick={switchSubscription}
           >
-            <BsToggleOn className="text-2xl" />
+            <BsToggleOn className="text-2xl cursor-pointer" />
           </div>
-          <p>Yearly</p>
+          <p
+            onClick={() => setTypeOfSubscription("Yearly")}
+            className={`cursor-pointer ${
+              typeOfSubscription === "Yearly"
+                ? "text-marineBlue"
+                : "text-coolGray"
+            }
+            `}
+          >
+            Yearly
+          </p>
         </div>
       </form>
-      <div className="flex justify-between w-[100%] mt-6">
+      <div className="flex justify-between w-[100%] mt-6 md:mt-auto">
         <button
           onClick={() => setSelectedButton(buttonTabs[0])}
           type="submit"
-          className="text-coolGray px-2 py-2 text-sm"
+          className="text-coolGray px-2 py-2 text-sm hover:text-black"
         >
           Go Back
         </button>
@@ -96,7 +100,7 @@ export default function SelectPlan() {
         <button
           onClick={nextStep}
           type="submit"
-          className=" bg-marineBlue text-white px-2 py-2 text-sm"
+          className=" self-end bg-marineBlue text-lightBlue px-6 py-3 text-sm mt-auto rounded-[4px] hover:bg-blue-800"
         >
           Next Step
         </button>

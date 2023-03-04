@@ -16,6 +16,16 @@ label {
 }
 
 input {
-  @apply pl-3 py-1 border-coolGray border-[1px] rounded-md text-sm w-full mb-3
+  @apply pl-3 py-2 border-coolGray border-[1px] rounded-md text-sm w-full mb-3 font-bold
 }
 
+.iconTransform {
+  transform: scaleX(-1);
+}
+
+
+input[type=checkbox]:checked + .checkBox {
+  background-image: url("images/icon-checkmark.svg");
+  @apply bg-PurplishBlue bg-center bg-no-repeat
+
+}

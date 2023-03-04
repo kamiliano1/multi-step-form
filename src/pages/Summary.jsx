@@ -62,7 +62,7 @@ export default function Summary() {
           <div className="grid grid-cols-2 grid-rows-2 my-5 px-3">
             <p className="text-marineBlue md:text-lg font-bold col-start-1  ">{`${customerInfo.plan.typeOfPlan} (${customerInfo.plan.typeOfSubscription})`}</p>
             <p
-              className="underline row-start-2"
+              className="underline row-start-2 cursor-pointer hover:text-PurplishBlue"
               onClick={() => setSelectedButton(buttonTabs[1])}
             >
               Change
@@ -91,14 +91,14 @@ export default function Summary() {
             <button
               onClick={() => setSelectedButton(buttonTabs[2])}
               type="submit"
-              className="  text-coolGray px-2 py-2 text-sm"
+              className="  text-coolGray px-2 py-2 text-sm hover:text-black"
             >
               Go Back
             </button>
             <button
               onClick={() => setIsConfirmed(true)}
               type="submit"
-              className=" bg-PurplishBlue text-white px-4 py-2 text-sm rounded-md"
+              className=" bg-PurplishBlue text-white px-7 py-3 text-sm rounded-md hover:opacity-50"
             >
               Confirm
             </button>

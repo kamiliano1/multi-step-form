@@ -4,13 +4,9 @@ import App from "./App";
 import "./index.css";
 import { PageFormContextProvider } from "./PageContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  //   <React.StrictMode>
-  //     <PageFormContextProvider>
-  //       <App />
-  //     </PageFormContextProvider>
-  //   </React.StrictMode>
-  // );
-  <PageFormContextProvider>
-    <App />
-  </PageFormContextProvider>
+  <React.StrictMode>
+    <PageFormContextProvider>
+      <App />
+    </PageFormContextProvider>
+  </React.StrictMode>
 );

@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { PageFormContext } from "../PageContext";
+import { useContext } from "react";
 import AddOnItem from "../components/AddOnItem";
 import { addOnsInformation } from "../Data/addOnsInformation";
+import { PageFormContext } from "../PageContext";
 export default function AddOns() {
-  const { setCustomerInfo, customerInfo, setSelectedButton, buttonTabs } =
+  const { customerInfo, setSelectedButton, buttonTabs } =
     useContext(PageFormContext);
   const addOnsItems = addOnsInformation.map((item) => {
     const planPrice = addOnsInformation.find(
@@ -35,14 +35,14 @@ export default function AddOns() {
         <button
           onClick={() => setSelectedButton(buttonTabs[1])}
           type="submit"
-          className="  text-coolGray px-2 py-2 text-sm"
+          className="text-coolGray px-2 py-2 text-sm hover:text-black"
         >
           Go Back
         </button>
         <button
           onClick={nextStep}
           type="submit"
-          className=" bg-marineBlue text-white px-2 py-2 text-sm"
+          className=" self-end bg-marineBlue text-lightBlue px-6 py-3 text-sm mt-auto rounded-[4px] hover:bg-blue-800"
         >
           Next Step
         </button>
@@ -50,9 +50,3 @@ export default function AddOns() {
     </section>
   );
 }
-
-// id: "customizableProfile",
-// name: "Customizable Profile",
-// details: "Custom theme on your profile",
-// price: "+$2/mo",
-// },
