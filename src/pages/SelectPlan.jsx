@@ -61,12 +61,12 @@ export default function SelectPlan() {
     });
   };
   return (
-    <section className="p-5 flex flex-col">
+    <section className="p-5 pb-10 h-full flex flex-col min-h-[550px]">
       <h1 className="text-2xl font-bold text-marineBlue">Select your plan</h1>
       <p className="text-sm text-coolGray my-4">
         You have the option of monthly or yearly billing.
       </p>
-      <form action="" className="shadow-md pb-5 h-[400px] flex flex-col">
+      <form action="" className=" pb-5 h-[400px] flex flex-col shadow-xl">
         {planButtons}
         <div>
           <button>
@@ -84,7 +84,7 @@ export default function SelectPlan() {
           <p>Yearly</p>
         </div>
       </form>
-      <div className="self-end flex justify-between w-[100%]">
+      <div className="flex justify-between w-[100%] mt-6">
         <button
           onClick={() => setSelectedButton(buttonTabs[0])}
           type="submit"

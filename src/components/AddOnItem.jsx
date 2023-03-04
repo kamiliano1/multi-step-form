@@ -20,19 +20,18 @@ export default function AddOnItem(props) {
       addOns: { ...prev.addOns, [checkBoxId]: !checkBoxRef.current.checked },
     }));
   };
-  console.log(customerInfo.addOns.onlineService);
   return (
     <div
       onClick={handleChange}
-      className={`grid grid-cols-[25px_2fr_1fr] z-20 ${
+      className={`grid grid-cols-[min-content_1fr_min-content] z-20 ${
         customerInfo.addOns[props.id] && "border-blue-900"
       } bg
-      grid-rows-2 gap-x-4 cursor-pointer rounded-md border-2 p-3 mb-3 items-center`}
+      grid-rows-2 cursor-pointer rounded-md border-2 p-3 mb-3 items-center`}
     >
-      <div className="row-span-2 mt-3 row-start-1 col-start-1">
+      <div className="row-span-2 mt-3 row-start-1 col-start-1 mr-2">
         <input
           type="checkbox"
-          className="w-[20px] h-[20px] mr-3"
+          className="w-[20px] h-[20px]"
           checked={customerInfo.addOns[props.id]}
           onChange={handleChange}
           name={props.id}
@@ -40,9 +39,9 @@ export default function AddOnItem(props) {
           ref={checkBoxRef}
         />
       </div>
-      <h3 className="font-bold text-marineBlue">{props.name}</h3>
-      <p className="text-coolGray text-sm col-start-2">{props.details}</p>
-      <p className=" text-sm row-span-2 row-start-1 col-start-3 text-end text-blue-900 text-md font-bold mr-1">
+      <h3 className="font-bold text-marineBlue text-xs">{props.name}</h3>
+      <p className="text-coolGray text-xs col-start-2">{props.details}</p>
+      <p className="text-xs md:text-sm row-span-2 row-start-1 col-start-3 text-end text-blue-900 text-md font-bold mr-1">
         +{props.price}
       </p>
     </div>

@@ -8,7 +8,7 @@ export default function Button(props) {
       ? "bg-PastelBlue border-none text-black"
       : "";
   return (
-    <div className="inline-grid md:grid md:justify-items-center md:grid-cols-2 md:grid-rows-1">
+    <div className="inline-grid md:grid md:justify-items-center md:grid-cols-[min-content,_max-content] md:gap-10 md:grid-rows-1 ">
       <button
         onClick={() => props.setSelectedButton(props.buttonTab)}
         className={`${activeButtonClass}  

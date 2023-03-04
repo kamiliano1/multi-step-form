@@ -28,12 +28,12 @@ export default function YourInfo() {
   }, []);
 
   return (
-    <section className="p-5 h-[550px] flex flex-col">
+    <section className="p-5 pb-10  min-h-[550px] flex flex-col">
       <h1 className="text-2xl font-bold text-marineBlue">Personal info</h1>
       <p className="text-sm text-coolGray my-4">
         Please provide your name, email address, and phone number.
       </p>
-      <form action="" className="shadow-md pb-5">
+      <form action="" className="shadow-xl pb-5 ">
         <div className="flex items-center justify-between">
           <p className="">Name</p>
           {errors.name && (
@@ -85,7 +85,7 @@ export default function YourInfo() {
       </form>
       <button
         onClick={handleSubmit(onSubmit)}
-        className="self-end mt-auto bg-marineBlue text-white px-2 py-2 text-sm"
+        className="self-end md:mt-auto bg-marineBlue text-white px-2 py-2 text-sm mt-auto"
       >
         Next Step
       </button>

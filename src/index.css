@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-marineBlue;
+
   font-family: 'Ubuntu', sans-serif;
 }
 label, input {
@@ -19,12 +19,3 @@ input {
   @apply pl-3 py-1 border-coolGray border-[1px] rounded-md text-sm w-full mb-3
 }
 
-.columny {
-  grid-template-columns: 35px 1fr;
-}
-.iconTransform {
-  transform: scaleX(-1);
-}
-.test {
-  vertical-align: middle;
-}

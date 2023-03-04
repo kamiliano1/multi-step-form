@@ -48,15 +48,19 @@ export default function Summary() {
     );
   });
   return (
-    <section className="p-5 h-[550px] flex flex-col text-coolGray">
+    <section
+      className={`p-5 pb-10 h-full flex flex-col text-coolGray ${
+        !isConfirmed && "min-h-[550px]"
+      }`}
+    >
       {!isConfirmed === true ? (
         <>
           <h1 className="text-2xl font-bold text-marineBlue">Finishing up</h1>
           <p className="text-sm text-coolGray my-4">
             Double-check everything looks OK before confirming.
           </p>
-          <div className="grid grid-cols-2 grid-rows-2 my-5">
-            <p className="text-marineBlue text-lg font-bold col-start-1  ">{`${customerInfo.plan.typeOfPlan} (${customerInfo.plan.typeOfSubscription})`}</p>
+          <div className="grid grid-cols-2 grid-rows-2 my-5 px-3">
+            <p className="text-marineBlue md:text-lg font-bold col-start-1  ">{`${customerInfo.plan.typeOfPlan} (${customerInfo.plan.typeOfSubscription})`}</p>
             <p
               className="underline row-start-2"
               onClick={() => setSelectedButton(buttonTabs[1])}
@@ -68,15 +72,15 @@ export default function Summary() {
             </p>
           </div>
           {addonsItems}
-          <div className="flex justify-between my-5">
+          <div className="flex justify-between my-5 px-3  shadow-xl pb-3">
             <p className="">
               Total{" "}
               {customerInfo.plan.typeOfSubscription === "Monthly"
                 ? "(per Month)"
                 : "(per Year)"}
             </p>
-            <p>
-              {totalPrice}{" "}
+            <p className=" text-PurplishBlue font-bold text-md">
+              +${totalPrice}{" "}
               {customerInfo.plan.typeOfSubscription === "Monthly"
                 ? "/mo"
                 : "/yr"}
@@ -94,21 +98,21 @@ export default function Summary() {
             <button
               onClick={() => setIsConfirmed(true)}
               type="submit"
-              className=" bg-marineBlue text-white px-2 py-2 text-sm"
+              className=" bg-PurplishBlue text-white px-4 py-2 text-sm rounded-md"
             >
               Confirm
             </button>
           </div>
         </>
       ) : (
-        <div className="flex flex-col text-center items-center space-y-4 my-auto">
+        <div className="flex flex-col text-center items-center space-y-4 my-auto shadow-xl md:shadow-none py-10">
           <img
             src="/images/icon-thank-you.svg"
             className="w-[50px] mb-5"
             alt=""
           />
           <h2 className="font-bold text-marineBlue text-2xl">Thank you!</h2>
-          <p className="text-sm">
+          <p className="text-sm max-w-[300px]">
             Thanks for confirming your subscription! We hope you have fun using
             our platform. If you ever need support, please feel free to email us
             at support@loremgaming.com.
