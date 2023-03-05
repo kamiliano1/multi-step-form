@@ -23,10 +23,12 @@ export default function AddOns() {
     setSelectedButton(buttonTabs[3]);
   };
   return (
-    <section className="p-5 pb-10 h-full flex flex-col min-h-[550px] ">
-      <div className="shadow-xl">
-        <h1 className="text-2xl font-bold text-marineBlue">Pick add-ons</h1>
-        <p className="text-sm text-coolGray my-4">
+    <section className="p-5 pb-10 h-full flex flex-col min-h-[541px] ">
+      <div className="shadow-xl md:shadow-none">
+        <h1 className="text-2xl font-bold text-marineBlue mb-2">
+          Pick add-ons
+        </h1>
+        <p className="text-sm text-coolGray mb-8">
           Add-ons help enhance your gaming experience.
         </p>
         {addOnsItems}

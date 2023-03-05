@@ -28,14 +28,14 @@ export default function YourInfo() {
   }, []);
 
   return (
-    <section className="p-5 pb-10 h-full flex flex-col min-h-[550px]">
-      <h1 className="text-2xl font-bold text-marineBlue">Personal info</h1>
-      <p className="text-sm text-coolGray my-4">
+    <section className="p-5 pb-10 h-full flex flex-col min-h-[541px]">
+      <h1 className="text-2xl font-bold text-marineBlue mb-2">Personal info</h1>
+      <p className="text-sm text-coolGray mb-6">
         Please provide your name, email address, and phone number.
       </p>
-      <form action="" className="shadow-xl pb-5 ">
+      <form action="" className="shadow-xl md:shadow-none pb-5 ">
         <div className="flex items-center justify-between">
-          <p className="">Name</p>
+          <p className="mb-1">Name</p>
           {errors.name && (
             <p className="text-red-600 font-bold text-xs text-right ">
               This field is required
@@ -51,7 +51,7 @@ export default function YourInfo() {
           {...register("name", { required: true })}
         />{" "}
         <div className="flex items-center justify-between">
-          <p className="">Email Address</p>
+          <p className="mb-1">Email Address</p>
           {errors.email && (
             <p className="text-red-600 font-bold text-xs text-right ">
               This field is required
@@ -67,7 +67,7 @@ export default function YourInfo() {
           {...register("email", { required: true })}
         />
         <div className="flex items-center justify-between">
-          <p className="">Phone Number</p>
+          <p className="mb-1">Phone Number</p>
           {errors.phone && (
             <p className="text-red-600 font-bold text-xs text-right ">
               This field is required

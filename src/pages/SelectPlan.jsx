@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { BsToggleOn } from "react-icons/bs";
 import PlanTypeItem from "../components/SelectPlanItem";
 import { plansInformation } from "../Data/plansInformation";
 import { PageFormContext } from "../PageContext";
@@ -48,12 +47,14 @@ export default function SelectPlan() {
   };
   return (
     <section className="p-5 pb-10 h-full flex flex-col ">
-      <h1 className="text-2xl font-bold text-marineBlue">Select your plan</h1>
-      <p className="text-sm text-coolGray my-4">
+      <h1 className="text-2xl font-bold text-marineBlue mb-2">
+        Select your plan
+      </h1>
+      <p className="text-sm text-coolGray mb-8">
         You have the option of monthly or yearly billing.
       </p>
       <form action="" className="">
-        <div className="pb-5 h-[350px] md:h-[230px] flex flex-col md:flex-row shadow-xl md:shadow-none md:gap-4">
+        <div className="pb-5  md:h-[230px] flex flex-col md:flex-row shadow-xl md:shadow-none md:gap-4">
           {planButtons}
         </div>
 
@@ -70,10 +71,16 @@ export default function SelectPlan() {
             Monthly
           </p>
           <div
-            className={typeOfSubscription !== "Yearly" ? "iconTransform" : ""}
+            className={`bg-marineBlue rounded-xl w-[50px] flex p-[.3rem] cursor-pointer  ${
+              typeOfSubscription !== "Yearly" ? "iconTransforms" : ""
+            }`}
             onClick={switchSubscription}
           >
-            <BsToggleOn className="text-2xl cursor-pointer" />
+            <span
+              className={`togglerSwitch inline-grid bg-slate-200 rounded-full px-2 aspect-square   ${
+                typeOfSubscription !== "Yearly" ? "ml-0" : "ml-[1.5rem]"
+              } `}
+            ></span>
           </div>
           <p
             onClick={() => setTypeOfSubscription("Yearly")}

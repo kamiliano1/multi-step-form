@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 html {
-
   font-family: 'Ubuntu', sans-serif;
 }
 label, input {
@@ -23,9 +22,12 @@ input {
   transform: scaleX(-1);
 }
 
-
 input[type=checkbox]:checked + .checkBox {
-  background-image: url("images/icon-checkmark.svg");
+  background-image: url("/images/icon-checkmark.svg");
   @apply bg-PurplishBlue bg-center bg-no-repeat
 
+}
+
+.togglerSwitch {
+  transition: margin-left 300ms ease-in-out;
 }

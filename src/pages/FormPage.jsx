@@ -26,7 +26,7 @@ export default function FormPage() {
         className=" md:flex-grow mb-2 rounded-xl
       bg-gray-800 bg-cover bg-mobile bg-no-repeat pt-10 text-center
       h-40 space-x-5 md:space-x-0 md:bg-bottom md:space-y-6 
-      md:bg-desktop md:h-full md:pl-10 md:max-w-[300px] md:px-5
+      md:bg-desktop md:h-full md:pl-10 md:max-w-[300px] md:px-5 
       "
       >
         {buttons}

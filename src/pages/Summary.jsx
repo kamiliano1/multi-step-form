@@ -50,13 +50,15 @@ export default function Summary() {
   return (
     <section
       className={`p-5 pb-10 h-full flex flex-col text-coolGray ${
-        !isConfirmed && "min-h-[550px]"
+        !isConfirmed && "min-h-[541px]"
       }`}
     >
       {!isConfirmed === true ? (
         <>
-          <h1 className="text-2xl font-bold text-marineBlue">Finishing up</h1>
-          <p className="text-sm text-coolGray my-4">
+          <h1 className="text-2xl font-bold text-marineBlue mb-2">
+            Finishing up
+          </h1>
+          <p className="text-sm text-coolGray mb-8">
             Double-check everything looks OK before confirming.
           </p>
           <div className="grid grid-cols-2 grid-rows-2 my-5 px-3">
@@ -72,7 +74,7 @@ export default function Summary() {
             </p>
           </div>
           {addonsItems}
-          <div className="flex justify-between my-5 px-3  shadow-xl pb-3">
+          <div className="flex justify-between my-5 px-3  shadow-xl md:shadow-none pb-3">
             <p className="">
               Total{" "}
               {customerInfo.plan.typeOfSubscription === "Monthly"
@@ -112,7 +114,7 @@ export default function Summary() {
             alt=""
           />
           <h2 className="font-bold text-marineBlue text-2xl">Thank you!</h2>
-          <p className="text-sm max-w-[300px]">
+          <p className="text-sm max-w-[390px]">
             Thanks for confirming your subscription! We hope you have fun using
             our platform. If you ever need support, please feel free to email us
             at support@loremgaming.com.
