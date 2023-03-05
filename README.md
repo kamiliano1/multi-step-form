@@ -44,7 +44,6 @@ Users should be able to:
 - Mobile-first workflow
 - React useContext
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [React Hook Form](https://react-hook-form.com/) - For input form
 
 ### What I learned
