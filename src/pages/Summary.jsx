@@ -55,9 +55,9 @@ export default function Summary() {
     >
       {!isConfirmed === true ? (
         <>
-          <h1 className="text-2xl font-bold text-marineBlue mb-2">
+          <h2 className="text-2xl font-bold text-marineBlue mb-2">
             Finishing up
-          </h1>
+          </h2>
           <p className="text-sm text-coolGray mb-8">
             Double-check everything looks OK before confirming.
           </p>
@@ -113,7 +113,7 @@ export default function Summary() {
             className="w-[50px] mb-5"
             alt=""
           />
-          <h2 className="font-bold text-marineBlue text-2xl">Thank you!</h2>
+          <h1 className="font-bold text-marineBlue text-2xl">Thank you!</h1>
           <p className="text-sm max-w-[390px]">
             Thanks for confirming your subscription! We hope you have fun using
             our platform. If you ever need support, please feel free to email us

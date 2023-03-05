@@ -53,7 +53,7 @@ export default function SelectPlan() {
       <p className="text-sm text-coolGray mb-8">
         You have the option of monthly or yearly billing.
       </p>
-      <form action="" className="">
+      <form>
         <div className="pb-5  md:h-[230px] flex flex-col md:flex-row shadow-xl md:shadow-none md:gap-4">
           {planButtons}
         </div>

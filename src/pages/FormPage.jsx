@@ -23,7 +23,8 @@ export default function FormPage() {
      md:h-[600px] justify-center p-2 md:shadow-xl"
     >
       <div
-        className=" md:flex-grow mb-2 rounded-xl
+        role="complementary"
+        className="md:flex-grow mb-2 rounded-xl
       bg-gray-800 bg-cover bg-mobile bg-no-repeat pt-10 text-center
       h-40 space-x-5 md:space-x-0 md:bg-bottom md:space-y-6 
       md:bg-desktop md:h-full md:pl-10 md:max-w-[300px] md:px-5 
@@ -32,12 +33,12 @@ export default function FormPage() {
         {buttons}
       </div>
       <div className=" md:flex-grow-[2] relative -top-12 md:top-0 bg-white w-[90%] mx-auto rounded-md max-w-[500px] ">
-        <section className="md:top-0 rounded-lg mx-auto md:mx-0 md:w-[100%] md:h-[600px] ">
+        <main className="md:top-0 rounded-lg mx-auto md:mx-0 md:w-[100%] md:h-[600px]">
           {selectedButton === "Your Info" && <YourInfo />}
           {selectedButton === "Select Plan" && <SelectPlan />}
           {selectedButton === "Add-Ons" && <AddOns />}
           {selectedButton === "Summary" && <Summary />}
-        </section>
+        </main>
       </div>
     </div>
   );

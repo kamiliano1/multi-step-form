@@ -33,7 +33,7 @@ export default function YourInfo() {
       <p className="text-sm text-coolGray mb-6">
         Please provide your name, email address, and phone number.
       </p>
-      <form action="" className="shadow-xl md:shadow-none pb-5 ">
+      <form className="shadow-xl md:shadow-none pb-5 ">
         <div className="flex items-center justify-between">
           <p className="mb-1">Name</p>
           {errors.name && (
